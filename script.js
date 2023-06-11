@@ -124,7 +124,9 @@ function decimalPointHandler(){
 function backSpaceHandler(){  
     outputBox.textContent = outputBox.textContent.slice(0,-1);
     // console.log(String(outputBox.textContent.slice(0,-1)))
-    if(outputBox.textContent.slice(0,-1) == ''){
+    if(outputBox.textContent.includes('.')){
+        decimalPoint.disabled = true;
+    } else {
         decimalPoint.disabled = false;
     };
     if(outputBox.textContent == ''){
