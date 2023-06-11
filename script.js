@@ -14,10 +14,6 @@ clearAllButton.addEventListener('click', clearAll);
 positiveNegative.addEventListener('click', positiveNegativeSwitch);
 backSpace.addEventListener('click', backSpaceHandler);
 decimalPoint.addEventListener('click', decimalPointHandler);
-// divide.addEventListener('click', division);
-// multiply.addEventListener('click', multiplication);
-// plus.addEventListener('click', addition);
-// minus.addEventListener('click', subtraction);
 
 function operate(accumulator, operator, number){
     switch(operator){
@@ -52,15 +48,12 @@ function operatorClickHandler(){
             decimalPoint.disabled = false;
             equals.disabled = false;
             if(calculationBox.textContent == ''){
-                // console.log('this one working')
                 calculationBox.textContent = outputBox.textContent + operation.value;
                 outputBox.textContent = '';
             } else if(!calculationBox.textContent.split('').slice(-1).some(i => operatorsArray.includes(i))){
-                // console.log('Made it here')
                 calculationBox.textContent = outputBox.textContent += operation.value;
                 outputBox.textContent = '';
             } else if(calculationBox.textContent.split('').some(i => operatorsArray.includes(i))){
-                // console.log('Working here')
                 calculationBox.textContent = calculationBox.textContent.slice(0,-1)+operation.value;
             };
         });
@@ -128,7 +121,6 @@ function decimalPointHandler(){
 };
 function backSpaceHandler(){  
     outputBox.textContent = outputBox.textContent.slice(0,-1);
-    // console.log(String(outputBox.textContent.slice(0,-1)))
     if(outputBox.textContent.includes('.')){
         decimalPoint.disabled = true;
     } else {
