@@ -38,6 +38,9 @@ function operate(accumulator, operator, number){
     };
     roundingDecimalPoints();
     limitNumberSize();
+    if(outputBox.textContent.includes('.')){
+        decimalPoint.disabled = true;
+    }
 };
 
 function operatorClickHandler(){
