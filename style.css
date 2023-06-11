@@ -125,3 +125,17 @@ button:hover i{
     color: #ff6f00;
 }
 /* Buttons End */
+
+@media screen and (max-width: 700px){
+    .container{
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: 2fr auto repeat(5, 2fr);
+    }
+    .operator, .numbers, .decimalPoint, .clearAll, .backSpace, .positiveNegative{
+        aspect-ratio: 1/1;
+    }
+    .equals{
+        aspect-ratio: 2/1;
+    }
+
+}
