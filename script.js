@@ -44,6 +44,7 @@ function operate(accumulator, operator, number){
 };
 
 function operatorClickHandler(){
+    equals.disabled = true;
     const operatorsArray = ['*', '/', '+', '-'];
     [...operators].map(operation => {
         operation.addEventListener('click', () => {
