@@ -73,7 +73,11 @@ function numberClickHandler(){
         number.addEventListener('click', () => {
             limitNumberSize();
             outputBox.textContent += number.value;
-            equals.disabled = false;
+            if(equals.disabled == true){
+                equals.disabled = true;
+            } else {
+                equals.disabled = false;
+            };
             backSpace.disabled = false;
         });
     });
