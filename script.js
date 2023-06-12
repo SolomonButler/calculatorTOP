@@ -50,12 +50,15 @@ function operatorClickHandler(){
             if(calculationBox.textContent == ''){
                 calculationBox.textContent = outputBox.textContent + operation.value;
                 outputBox.textContent = '';
-            } else if(!calculationBox.textContent.split('').slice(-1).some(i => operatorsArray.includes(i))){
+            } else if(!calculationBox.textContent.split('').slice(-1).some(lastLetter => operatorsArray.includes(lastLetter))){
                 calculationBox.textContent = outputBox.textContent += operation.value;
                 outputBox.textContent = '';
-            } else if(calculationBox.textContent.split('').some(i => operatorsArray.includes(i))){
+            } else if(calculationBox.textContent.split('').some(allLetters => operatorsArray.includes(allLetters))){
                 calculationBox.textContent = calculationBox.textContent.slice(0,-1)+operation.value;
             };
+            // if(typeof calculationBox.textContent.slice(-1) == 'string' && outputBox.textContent == ''){
+            //     equals.disabled = true;
+            // };
         });
             
     });
@@ -79,12 +82,14 @@ function numberClickHandler(){
 numberClickHandler();
 
 function equalsHandler(){
-    let accumulator = Number(calculationBox.textContent.slice(0, -1));
-    let number = Number(outputBox.textContent);
-    let operator = calculationBox.textContent.at(-1);
-    calculationBox.textContent = calculationBox.textContent + outputBox.textContent;
-    equals.disabled = true;
-    operate(accumulator, operator, number);
+    if(outputBox.textContent !== ''){
+        let accumulator = Number(calculationBox.textContent.slice(0, -1));
+        let number = Number(outputBox.textContent);
+        let operator = calculationBox.textContent.at(-1);
+        calculationBox.textContent = calculationBox.textContent + outputBox.textContent;
+        equals.disabled = true;
+        operate(accumulator, operator, number);
+    };
 };
 function limitNumberSize(){
     if(outputBox.textContent.length > 14){
